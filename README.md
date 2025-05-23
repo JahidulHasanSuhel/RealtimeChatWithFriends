@@ -27,3 +27,4 @@ This project allows users to send messages, upload profile pictures, and chat in
 - MongoDB & Mongoose
 - Socket.io
 - Cloudinary SDK
+- [`Take a look at the live demo`](https://realtimechat-withfriends.onrender.com)
