@@ -12,12 +12,10 @@ import {
 
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-
 import AuthImagePattern from "../components/AuthImagePattern";
 
 function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -40,25 +38,20 @@ function SignUpPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const success = validateForm();
-
     if (success === true) {
       signup(formData);
     }
   };
 
   return (
-    <div className="min-h-screen grid lg: grid-cols-2">
-      <div className="flex flex-col justify-center items-center p-6 sm:p-12">
+    <div className="min-h-screen grid lg:grid-cols-2 bg-base-100">
+      {/* Left: Sign up form - vertically centered */}
+      <div className="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
-          {/* LOGO */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <div className="flex flex-col items-center gap-2 group">
-              <div
-                className="size-12 rounded-xl bg-primary/10 flex items-center justify-center 
-              group-hover:bg-primary/20 transition-colors"
-              >
+              <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <MessageSquare className="size-6 text-primary" />
               </div>
               <h1 className="text-2xl font-bold mt-2">Create Account</h1>
@@ -69,6 +62,7 @@ function SignUpPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Full Name */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Full Name</span>
@@ -89,6 +83,7 @@ function SignUpPage() {
               </div>
             </div>
 
+            {/* Email */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Email</span>
@@ -109,6 +104,7 @@ function SignUpPage() {
               </div>
             </div>
 
+            {/* Password */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Password</span>
@@ -140,6 +136,7 @@ function SignUpPage() {
               </div>
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
               className="btn btn-primary w-full"
@@ -155,6 +152,7 @@ function SignUpPage() {
               )}
             </button>
           </form>
+
           <div className="text-center">
             <p className="text-base-content/60">
               Already have an account?{" "}
@@ -166,11 +164,13 @@ function SignUpPage() {
         </div>
       </div>
 
-      {/* right side */}
-      <AuthImagePattern
-        title="Join Our Community"
-        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
-      />
+      {/* Right: Image side (only on large screens) */}
+      <div className="hidden lg:flex items-center justify-center bg-base-200">
+        <AuthImagePattern
+          title="Join Our Community"
+          subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
+        />
+      </div>
     </div>
   );
 }
