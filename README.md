@@ -13,7 +13,6 @@ This project allows users to send messages, upload profile pictures, and chat in
 - Clean and Modular Codebase
 
 ## `Tech Stack`
-
 `Frontend`:
 - React
 - Zustand
