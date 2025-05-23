@@ -12,7 +12,7 @@ import { app, server } from './lib/soket.js';
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 10000;
 const __dirname = path.resolve();
 
 
@@ -35,7 +35,7 @@ if(process.env.NODE_ENV === "production"){
     });
 }
 
-server.listen(PORT, ()=>{
+server.listen(PORT, '0.0.0.0', ()=>{
     connectDB();
     console.log(`server is running on ${PORT}`);
 }) 
